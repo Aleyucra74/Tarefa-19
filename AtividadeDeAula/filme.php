@@ -2,6 +2,12 @@
 	include('./includes/filmes.php');
 	include('./includes/generos.php');
 
+	if(!array_key_exists('id',$_GET) || $_GET['id'] >= count($filmes) ){
+		echo "FILME INEXISTENTE";
+		
+		die();
+	}
+
 	$id = 1 * $_GET['id'];
 	$f = $filmes[$id];
 
@@ -24,14 +30,15 @@
 <body>
 	<nav>
 		<ul>
-		<?php 
+			<?php 
 				foreach($generos as $g){
 					echo '<li><a href="#">'.$g.'</a></li>';
 				}
 			?>
 		</ul>
-		<form>
-			<input type="text" name="trecho"><button type="submit">Buscar</button>
+		<form method="GET" action="busca.php">
+			<input type="text" name="trecho">
+			<button type="submit">Buscar</button>
 		</form>
 	</nav>
 	<main>

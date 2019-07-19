@@ -2,10 +2,8 @@
 	include('./includes/filmes.php');
 	include('./includes/generos.php');
 
-
 	$id = 1 * $_GET['id'];
 	$f = $filmes[$id];
-
 
 ?>
 
